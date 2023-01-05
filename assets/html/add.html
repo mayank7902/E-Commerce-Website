@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping Cart UI</title>
+	<link rel="stylesheet" type="text/css" href="styleadd.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<style>
+    .tr{
+      width: 50%;
+      max-height: 100px;
+      display: flex;
+    }
+    .td{
+      border: 1px solid black;
+    }
+     .td img {
+        width: 100%;
+        height: 100%;
+      }
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+.input-container {
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: black;
+  color: white;
+  padding: 5px 5px;
+  cursor: pointer;
+  width: 40%;
+  font-family:'Open Sans';
+  font-size: 16px;
+  font-weight:400;
+  display:inline-block;
+  color:#FFF;
+  border-radius: .25em;
+  text-shadow: -1px -1px 0px rgba(0,0,0,0.4);
+}
+</style>
+</head>
+<body>
+<form action="/action_page.php" style="max-width:500px;margin:auto">
+  <h1>Add Products</h1>
+  <div class="input-container">
+    <label for="pname">Product Name: </label>
+    <input type="text" id="pname" name="pname" >
+  </div>
+  <div class="input-container">
+    <label for="uname">Unit of Measure: </label>
+    <input type="text" id="uname" name="uname" >
+  </div>
+  <div class="input-container">
+    <label for="fname">Product Rate: </label>
+    <input type="text" id="pname" name="pname" > 
+  </div>
+  <label for="iname">Image File</label>
+  <form action="/action_page.php">
+    <input type="file" id="myFile" name="filename">
+    <br><br>
+    <label for="category">Category :</label>
+    <select name="category" id="category">
+        <option value="leafy">Leafy</option>
+        <option value="root">Root</option>
+        <option value="Non-leafy">Non_leafy</option>
+    </select>
+    <br><br>
+  <button type="submit" class="btn">ADD</button>
+  <button type="submit" class="btn">CLEAR</button>
+</form>
+
+   
+   	   <table>
+        <thead>
+          <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Rate</th>
+            <th scope="col">Category</th>
+            <th scope="col">Image</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td >Spinach</td>
+            <td >1kg</td>
+            <td >30</td>
+            <td >Leafy</td>
+            <td> 
+              <div class="tr">
+              <div class="td">
+               <img src="spinach.jpg">
+              </div>
+             </div></td>
+            <td ><button onclick='display()'> EDIT</button></td>
+            <td > <button onclick='display()'> DELETE</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td >Broccoli</td>
+            <td >1kg</td>
+            <td >30</td>
+            <td >Non-Leafy</td>
+            <td> 
+              <div class="tr">
+              <div class="td">
+               <img src="broccoli.jpg">
+              </div>
+             </div></td>
+             <td ><button onclick='display()'> EDIT</button></td>
+             <td > <button onclick='display()'> DELETE</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td >Cauliflower</td>
+            <td >1kg</td>
+            <td >40</td>
+            <td >Non-Leafy</td>
+            <td> 
+              <div class="tr">
+              <div class="td">
+               <img src="cauliflower.jpg">
+              </div>
+             </div></td>
+             <td ><button onclick='display()'> EDIT</button></td>
+             <td > <button onclick='display()'> DELETE</button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td >Tomato</td>
+            <td >2kg</td>
+            <td >20</td>
+            <td >N0n-Leafy</td>
+            <td> <div class="tr">
+              <div class="td">
+               <img src="tomato.jpg">
+              </div>
+             </div></td>
+             <td ><button onclick='display()'> EDIT</button></td>
+             <td > <button onclick='display()'> DELETE</button></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td >Potato</td>
+            <td >1kg</td>
+            <td >30</td>
+            <td >Root</td>
+            <td> <div class="tr">
+              <div class="td">
+               <img src="potato.jpg">
+              </div>
+             </div></td>
+             <td ><button onclick='display()'> EDIT</button></td>
+             <td > <button onclick='display()'> DELETE</button></td>
+          </tr>
+        </tbody>
+      </table>
+   	   </div>
+
+   	   
+</body>
+</html>
+<script>
+  var myArray = [{ "name": "aaa", "level": "A" }, { "name": "bbb", "level": "B" }, { "name": "ccc", "level": "C" }];
+
+  function display() {
+      var length = myArray.length;
+      var htmltext = "";
+
+      for (var i = 0; i < length; i++) {
+          console.log(myArray[i]);
+          htmltext += "<tr id='table"+i+"'><td>"
+          +myArray[i].name+
+          "</td><td>"
+          +myArray[i].level+
+          "</td><td><button onclick='edit("+i+")'>Edit</button><button onclick='remove("+i+")'>Remove</button></td></tr>";
+      }
+      document.getElementById("tbody").innerHTML = htmltext;
+  }
+
+  function edit(indice) {
+      var htmltext = "<tr><td><input id='inputname"+indice+"' type='text' value='"
+          +myArray[indice].name+
+          "'></td><td><input id='inputlevel"+indice+"' type='text' value='"
+          +myArray[indice].level+
+          "'></td><td><button onclick='save("+indice+")'>Save</button><button onclick='remove("+indice+")'>Remove</button></td></tr>";
+      document.getElementById("table"+indice).innerHTML = htmltext; 
+  }
+
+
+  function save(indice) {
+      myArray[indice].name = document.getElementById("inputname"+indice).value;
+      myArray[indice].level = document.getElementById("inputlevel"+indice).value;
+      var htmltext = "<tr id='table"+indice+"'><td>"
+          +myArray[indice].name+
+          "</td><td>"
+          +myArray[indice].level+
+          "</td><td><button onclick='edit("
+          +indice+")'>Edit</button><button onclick='remove("
+          +indice+")'>Remove</button></td></tr>";
+      document.getElementById("table"+indice).innerHTML = htmltext;
+  }
+
+  function remove(indice) {
+      console.log(myArray);
+      myArray.splice(indice, 1);
+      display();
+  }
+</script>
