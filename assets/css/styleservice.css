@@ -75,6 +75,10 @@ header{
     margin-bottom: 70px;
     
   }
+<<<<<<< HEAD
+=======
+}
+>>>>>>> b501aff8e16c55f3efdf6aa7b29f5ae9a8756631
 .row1-span{
     margin-top: 80px;
 }
@@ -167,5 +171,8 @@ h3{
 /* Add a background color on hover */
 .btn-group button:hover {
   background-color: green;
+<<<<<<< HEAD
 }
+=======
+>>>>>>> b501aff8e16c55f3efdf6aa7b29f5ae9a8756631
 }
